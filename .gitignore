@@ -1,0 +1,128 @@
+# Godot 4.6 .gitignore
+# Purpose: Exclude build artifacts while preserving essential project files
+
+# ============================================================================
+# GODOT BUILD ARTIFACTS (DO NOT COMMIT)
+# ============================================================================
+
+# .godot/ - Generated build cache and imported assets
+# Why exclude: This directory can be 100MB-500MB and is regenerated from source files
+# Contains: Compiled scripts, processed textures, physics cache, etc.
+.godot/
+
+# .mono/ - C# build artifacts (only relevant if using C# instead of GDScript)
+# Why exclude: Compiled .NET assemblies, can be regenerated
+.mono/
+
+# data_*/ - Editor-specific temporary data
+# Why exclude: Per-machine editor state, not part of project
+data_*/
+
+# ============================================================================
+# EXPORT/BUILD OUTPUTS (DO NOT COMMIT)
+# ============================================================================
+
+# Executable builds (platform-specific)
+*.exe           # Windows executable
+*.pck           # Godot packed game data
+*.app           # macOS application bundle
+*.dmg           # macOS disk image
+*.zip           # Compressed build archives
+*.apk           # Android package
+*.ipa           # iOS package
+
+# Export presets - CAREFULLY CONSIDER
+# Why you might exclude: Contains absolute paths to export templates (machine-specific)
+# Why you might include: Team needs shared export settings
+# Decision: Exclude by default, document export settings in README if needed
+export_presets.cfg
+
+# ============================================================================
+# OPERATING SYSTEM FILES (DO NOT COMMIT)
+# ============================================================================
+
+# macOS
+.DS_Store           # Finder metadata
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db           # Image cache
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.directory          # KDE folder settings
+*~                  # Backup files
+
+# ============================================================================
+# IDE AND EDITOR FILES (DO NOT COMMIT)
+# ============================================================================
+
+# VSCode
+.vscode/            # Settings, launch configs (machine-specific)
+
+# JetBrains IDEs (Rider, IntelliJ)
+.idea/
+*.iml
+
+# Vim/Neovim
+*.swp
+*.swo
+*.swn
+.vim/
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# ============================================================================
+# WHAT YOU *SHOULD* COMMIT
+# ============================================================================
+# ✅ .tscn files (scenes - defines node hierarchies)
+# ✅ .gd files (scripts - game logic)
+# ✅ .tres files (resources - data definitions)
+# ✅ .import files (import settings for assets)
+# ✅ project.godot (project configuration)
+# ✅ All asset source files (.png, .jpg, .ogg, .wav, etc.)
+# ✅ README.md, LICENSE, documentation
+# ✅ addons/ folder (third-party plugins)
+#
+# CRITICAL: Do NOT add .tscn or .gd to .gitignore!
+# These are your actual project files, not generated artifacts.
+
+# ============================================================================
+# PROJECT-SPECIFIC EXCLUSIONS (CUSTOMIZE AS NEEDED)
+# ============================================================================
+
+# Exclude large asset archives if you unpack them into assets/
+# Example: If you download "sprout-lands-asset-pack.zip" and extract it
+# sprout-lands-asset-pack.zip
+
+# Exclude prototype/experimental folders
+# prototype/
+# experiments/
+
+# Exclude private notes or design docs with sensitive info
+# private_notes.md
+
+# ============================================================================
+# SAVE GAMES AND USER DATA (CONSIDER CAREFULLY)
+# ============================================================================
+# If your game saves to user:// (recommended), this is auto-handled
+# If saving to project folder (NOT recommended), exclude save files:
+# saves/
+# *.save
+
+# ============================================================================
+# LOGS (DO NOT COMMIT)
+# ============================================================================
+logs/
+*.log
