@@ -12,6 +12,7 @@ config_version=5
 
 config/name="Ember Island"
 config/description="A farming simulation game inspired by Stardew Valley"
+run/main_scene="uid://c1piq78bjjtyi"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
